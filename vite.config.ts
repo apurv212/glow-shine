@@ -9,6 +9,16 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  preview: {
+    host: "::",
+    port: 8080,
+    allowedHosts: [
+      "glow-shine.onrender.com",
+      "glowandshine.com",
+      "www.glowandshine.com",
+      "localhost"
+    ]
+  },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

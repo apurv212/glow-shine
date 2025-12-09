@@ -1,0 +1,46 @@
+{
+  "name": "Glow & Shine - Custom Handmade Candles by Nav Priya Bharti",
+  "short_name": "Glow & Shine",
+  "description": "Discover exquisite handcrafted custom candles by Nav Priya Bharti. Personalized scented candles, luxury decorative candles, and bespoke artisan candles.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": [
+    "shopping",
+    "lifestyle",
+    "home",
+    "gifts"
+  ],
+  "keywords": [
+    "glow $ shine",
+    "glow and shine",
+    "glowandshine",
+    "glow&shine",
+    "nav priya bharti",
+    "priya bharti",
+    "custom candles",
+    "handmade candles",
+    "personalized candles",
+    "scented candles",
+    "decorative candles",
+    "luxury candles",
+    "artisan candles"
+  ]
+}
+

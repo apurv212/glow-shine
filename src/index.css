@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark luxurious theme with warm amber glow */
+    --background: 20 14% 8%;
+    --foreground: 40 20% 92%;
+
+    --card: 20 12% 12%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 20 12% 12%;
+    --popover-foreground: 40 20% 92%;
+
+    /* Warm amber gold - primary brand color */
+    --primary: 38 92% 55%;
+    --primary-foreground: 20 14% 8%;
+
+    /* Cream/ivory secondary */
+    --secondary: 35 30% 20%;
+    --secondary-foreground: 40 30% 90%;
+
+    /* Muted dark tones */
+    --muted: 20 10% 18%;
+    --muted-foreground: 35 15% 60%;
+
+    /* Soft rose accent */
+    --accent: 350 60% 55%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 38 92% 55%;
+
+    --radius: 0.75rem;
+
+    /* Custom colors */
+    --glow: 38 100% 60%;
+    --glow-soft: 38 80% 40%;
+    --cream: 40 40% 90%;
+    --rose: 350 60% 55%;
+    --burgundy: 350 50% 35%;
+
+    --sidebar-background: 20 12% 10%;
+    --sidebar-foreground: 40 20% 92%;
+    --sidebar-primary: 38 92% 55%;
+    --sidebar-primary-foreground: 20 14% 8%;
+    --sidebar-accent: 30 15% 18%;
+    --sidebar-accent-foreground: 40 20% 92%;
+    --sidebar-border: 30 15% 20%;
+    --sidebar-ring: 38 92% 55%;
+  }
+
+  .dark {
+    --background: 20 14% 8%;
+    --foreground: 40 20% 92%;
+    --card: 20 12% 12%;
+    --card-foreground: 40 20% 92%;
+    --popover: 20 12% 12%;
+    --popover-foreground: 40 20% 92%;
+    --primary: 38 92% 55%;
+    --primary-foreground: 20 14% 8%;
+    --secondary: 35 30% 20%;
+    --secondary-foreground: 40 30% 90%;
+    --muted: 20 10% 18%;
+    --muted-foreground: 35 15% 60%;
+    --accent: 350 60% 55%;
+    --accent-foreground: 40 20% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 38 92% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary via-cream to-primary bg-clip-text text-transparent;
+  }
+
+  .glow-effect {
+    box-shadow: 0 0 40px hsl(var(--glow) / 0.3), 0 0 80px hsl(var(--glow) / 0.15);
+  }
+
+  .glow-text {
+    text-shadow: 0 0 20px hsl(var(--glow) / 0.5), 0 0 40px hsl(var(--glow) / 0.3);
+  }
+
+  .card-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--glow) / 0.15), transparent 40%);
+  }
+
+  .card-glow:hover::before {
+    @apply opacity-100;
+  }
+
+  .flame-flicker {
+    animation: flicker 3s ease-in-out infinite;
+  }
+
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(180deg, transparent 0%, hsl(var(--background)) 100%);
+  }
+}
+
+@keyframes flicker {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  25% { opacity: 0.9; transform: scale(1.02); }
+  50% { opacity: 1; transform: scale(0.98); }
+  75% { opacity: 0.95; transform: scale(1.01); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--glow) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--glow) / 0.5), 0 0 60px hsl(var(--glow) / 0.2); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-shimmer {
+  animation: shimmer 3s infinite;
+  background-size: 200% 100%;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
